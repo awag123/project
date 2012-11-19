@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe Board do
-<<<<<<< HEAD
-  pending "add some examples to (or delete) #{__FILE__}"
-=======
   let(:user) { FactoryGirl.create(:user) }
   let(:board) { FactoryGirl.create(:board, user: user) }
 
@@ -86,5 +83,4 @@ describe Board do
       end
     end
   end
->>>>>>> origin
 end

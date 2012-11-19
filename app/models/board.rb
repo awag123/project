@@ -4,4 +4,8 @@ class Board < ActiveRecord::Base
   has_many :tiles
   has_many :advertisements
   belongs_to :user
+  has_one :payment_detail, as: :payable
+  
+  
+  validates :name, presence: true
 end

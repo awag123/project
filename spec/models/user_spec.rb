@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe User do
-<<<<<<< HEAD
-  pending "add some examples to (or delete) #{__FILE__}"
-=======
   let(:user) { FactoryGirl.create(:user) }
 
   subject { user }
@@ -49,5 +46,4 @@ describe User do
       end
     end
   end
->>>>>>> origin
 end
