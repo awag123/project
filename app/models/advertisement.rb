@@ -5,4 +5,11 @@ class Advertisement < ActiveRecord::Base
   belongs_to :user
   belongs_to :board
   has_many :payment_details, as: :payables
+
+  validates :image, presence: true
+  
+  
+  
+  
+  
 end
