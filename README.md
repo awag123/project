@@ -8,4 +8,9 @@ infrastructure for you to pass the project requirements.  If you do
 not merge from this repository, then it is impossible to tell if your
 code is working properly.
 
+<<<<<<< HEAD
 This is the local file of Xander Wagner
+=======
+Github should notify you when the repository is modified so you know
+when to pull new test content.
+>>>>>>> origin
