@@ -5,4 +5,8 @@ class PaymentDetail < ActiveRecord::Base
   belongs_to :user
   
   validates :amount, presence: true, numericality: true
+  
+  def charge
+	#compiles charges for all of the user's advertisements
+  end
 end

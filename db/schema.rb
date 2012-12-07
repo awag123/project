@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20121119140621) do
     t.binary   "image"
     t.integer  "x_location"
     t.integer  "y_location"
+    t.integer  "board_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,0 +1,7 @@
+<% if signed_in? %>
+  <%= render 'signed_in'%>
+<% else %>
+  <%= render 'signed_out'%>
+
+  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %> 
