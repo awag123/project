@@ -25,7 +25,7 @@ class Tile < ActiveRecord::Base
 		if (advertisement.x_location + advertisement.width - 1) < self.x_location
 			errors.add(:x_location, 'x location greater then avertisement x location + width')
 		end
-		if self.x_location > advertisement.board.width
+		if self.x_location >= board.width
 			errors.add(:x_location, 'x location greater then board width')
 		end
 		if self.x_location > advertisement.width
@@ -39,7 +39,7 @@ class Tile < ActiveRecord::Base
 		if (advertisement.y_location + advertisement.height - 1) < self.y_location
 			errors.add(:y_location, 'y location greater then avertisement y location + height')
 		end
-		if self.y_location > advertisement.board.height
+		if self.y_location >= board.height
 			errors.add(:x_location, 'y location greater then board height')
 		end
 		if self.y_location > advertisement.height

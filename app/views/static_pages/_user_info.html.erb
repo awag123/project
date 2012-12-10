@@ -1,0 +1,20 @@
+<a href="<%= user_path(user) %>">
+  <%= gravatar_for user, size: 52 %>
+</a>
+<h1>
+  <%= user.name %>
+</h1>
+<span>
+  <%= user.email %>
+</span>
+<section>
+	<span>
+	  <%= link_to "view my profile", user %>
+	</span>
+</section>
+<% if current_user?(user) %>
+	<section>
+		<%= link_to "Create board", makeboard_path,
+                            class: "btn btn-large btn-primary" %>
+	</section>
+<% end %> 

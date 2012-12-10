@@ -69,14 +69,14 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: Black;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: blue;
     text-decoration: none;
   }
 }
@@ -86,7 +86,7 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
+  border-top: 1px solid $grayLight;
   color: $grayLight;
   a {
     color: $gray;
@@ -122,7 +122,7 @@ footer {
   aside {
 	section {
 		padding: 10px 0;
-		border-top: 1px solid $grayLighter;
+		border-top: 1px solid $grayLight;
 		&:first-child {
 			border: 0;
 			padding-top: 0;
@@ -146,7 +146,7 @@ footer {
   a {
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $grayLighter;
+    border-left: 1px solid $grayLight;
     color: gray;
     &:first-child {
       padding-left: 0;

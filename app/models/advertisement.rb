@@ -26,7 +26,7 @@ class Advertisement < ActiveRecord::Base
   private
   
   def check_size
-	unless x_location.nil?
+	unless x_location.nil? && width.nil?
 		if self.x_location > (board.width - 1)
 			errors.add(:x_location, 'x location greater then board width')
 		end
@@ -37,7 +37,7 @@ class Advertisement < ActiveRecord::Base
 			errors.add(:x_location, 'x location + width greater then board height')
 		end
 	end
-	unless y_location.nil?
+	unless y_location.nil? && height.nil?
 		if self.y_location > (board.height - 1)
 			errors.add(:y_location, 'y location greater then board height')
 		end

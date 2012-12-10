@@ -1,0 +1,21 @@
+<h1>Made By:</h1>
+
+<a href="<%= user_path(user) %>">
+  <%= gravatar_for user, size: 45 %>
+</a>
+<h2>
+  <%= user.name %>
+</h2>
+<section>
+	<span>
+	  <p>Board Width: <%= pluralize board.height, 'tile' %></p>
+	</span>
+	<span>
+	  <p>Board Height: <%= pluralize board.width, 'tile' %></p>
+	</span>
+	<span>
+	  <p>Board Timezone: <%= board.timezone %></p>
+	</span>
+<section>
+<%= link_to "Create advertisement", makeadvertisement_path,
+                                class: "btn btn-large btn-primary" %>

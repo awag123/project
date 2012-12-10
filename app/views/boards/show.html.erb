@@ -1,0 +1,12 @@
+<% provide(:title, @board.name) %>
+<h1>
+  <%= @board.name %>
+</h1>
+<div class="row">
+	<aside class="span4">
+			<section>
+				<%= render 'boards/board_info', user: @user, board: @board %>
+			</section>
+
+	</aside>
+</div>

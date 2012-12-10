@@ -1,0 +1,16 @@
+<%= form_for(@advertisement) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+	<%= f.label :x_location %>
+	<%= f.text_field :x_location %>
+	
+	<%= f.label :y_location %>
+	<%= f.text_field :y_location %>
+
+	<%= f.label :width %>
+	<%= f.text_field :width %>
+
+	<%= f.label :height %>
+	<%= f.text_field :height %>
+
+  <%= f.submit "Create advertisement", class: "btn btn-large btn-primary" %>
+<% end %>

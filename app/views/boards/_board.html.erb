@@ -1,0 +1,9 @@
+<li>
+	<% if current_user == board.user %>
+		<%= link_to board.name, board %> | 
+		<%= link_to "delete", board, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+	<% else %>
+		<%= link_to board.name, board %>
+	<% end %>
+</li>

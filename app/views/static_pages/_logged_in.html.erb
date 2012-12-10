@@ -1,0 +1,13 @@
+<div class="row">
+    <aside class="span4">
+		<% if signed_in? && current_user.admin? %> 
+			<section>
+				<%= render 'users/admin_page', user: user %>
+			</section>
+		<% else %>
+			<section>
+				<%= render 'static_pages/user_info', user: user %>
+			</section>
+		<% end %>
+	</aside>
+</div>
