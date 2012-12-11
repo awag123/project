@@ -70,7 +70,7 @@ describe "AuthenticationPages" do
 	user.email.upcase!
 	signin user
       end
-
+	##it {puts page.html}
       it_should_behave_like 'successful login'
     end
   end

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :advertisements
   has_many :payment_details
   
-  
+  before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
   
   

@@ -3,18 +3,23 @@ class BoardsController < ApplicationController
   before_filter :correct_user,   only: :destroy
   
   def create
-    @board = current_user.boards.create(params[:board])
-    if @board.save
-      flash[:success] = "Board created!"
-      redirect_to root_url
+	if !signed_in?
+		redirect_to root_path
 	else
-	  flash.now[:error] = "Board was not created..."
-      redirect_to root_url
-    end
+		@board = current_user.boards.create(params[:board])
+		if @board.save
+		  flash[:success] = "Board created!"
+		  redirect_to board_show_path
+		else
+		  flash.now[:error] = "Board was not created..."
+		  redirect_to root_path
+		end
+	end
   end
   
   def show
 	@board = Board.find(params[:id])
+	current_board=(@board)
 	@user = @board.user
   end
   
@@ -27,7 +32,7 @@ class BoardsController < ApplicationController
   def new
   	if !signed_in?
 		redirect_to root_url
-		flash.now[:error] = "Not signed in"
+		flash[:error] = "Not signed in"
 	end
 	@user = current_user
 	@board  = current_user.boards.build

@@ -12,7 +12,7 @@ class Board < ActiveRecord::Base
   validates :height, :numericality => { :greater_than_or_equal_to => 1 }
   validates_inclusion_of :timezone, :in => ActiveSupport::TimeZone.zones_map { |m| m.name }, :message => "is not a valid Time Zone"
   
-  before_create :initialize_board
+  after_save :initialize_board
 
   def age
 	#go through all tilles and call tile.age
@@ -22,8 +22,9 @@ class Board < ActiveRecord::Base
   
   def initialize_board
 	default_ad = Rails.root.join('spec', 'images', '3x5.jpg').to_s
-	@ad = advertisements.build(user: user, :height => height, :width => width, :x_location => 0, :y_location => 0)
-	##@ad.image_contents=(default_ad)
+	@ad = advertisements.build(:height => height, :width => width, :x_location => 0, :y_location => 0)
+	@ad.user = user
+	@ad.image_contents=(default_ad)
 
 	@ad.save
   end

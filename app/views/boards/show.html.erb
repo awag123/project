@@ -2,6 +2,13 @@
 <h1>
   <%= @board.name %>
 </h1>
+
+<div>
+	<% @board.advertisements.each do |a| %>
+		<%= link_to image_tag(url_for(:action => 'show', :controller => advertisement, :advertisement => a)) %>
+	<% end %>
+</div>
+
 <div class="row">
 	<aside class="span4">
 			<section>

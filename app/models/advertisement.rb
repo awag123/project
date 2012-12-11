@@ -15,8 +15,8 @@ class Advertisement < ActiveRecord::Base
   validate :check_size
   
   
-  def image_contents=
-	#no clue
+  def image_contents=(file)
+	image = file
   end
   
   def charge
@@ -26,7 +26,7 @@ class Advertisement < ActiveRecord::Base
   private
   
   def check_size
-	unless x_location.nil? && width.nil?
+	unless x_location.nil?
 		if self.x_location > (board.width - 1)
 			errors.add(:x_location, 'x location greater then board width')
 		end

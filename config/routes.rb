@@ -16,6 +16,7 @@ ElectronicBulletinBoard::Application.routes.draw do
   
   match '/makeboard',  to: 'boards#new'
   match '/makeadvertisement', to: 'advertisements#new'
+
   
   
   

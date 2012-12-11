@@ -1,11 +1,9 @@
-<h1>Made By:</h1>
-
 <a href="<%= user_path(user) %>">
   <%= gravatar_for user, size: 45 %>
 </a>
-<h2>
-  <%= user.name %>
-</h2>
+<h1>
+  Created by: <%= user.name %>
+</h1>
 <section>
 	<span>
 	  <p>Board Width: <%= pluralize board.height, 'tile' %></p>

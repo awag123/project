@@ -1,14 +1,13 @@
 class AdvertisementsController < ApplicationController
   def new
 	@user = current_user
-	@advertisement  = current_user.advertisements.build
 	@board = Board.find(params[:board_id])
+	@advertisement  = @board.advertisements.build
   end
   
   def create
 	@board = Board.find(params[:board_id])
     @advertisement = @board.advertisements.create(params[:advertisement])
-	@advertisement.user = current_user
     if @advertisement.save
       flash[:success] = "Advertisement created!"
       redirect_to root_url
@@ -16,6 +15,11 @@ class AdvertisementsController < ApplicationController
 	  flash.now[:error] = "Advertisement was not created..."
       redirect_to root_url
     end
+  end
+  
+  def show
+	@ad = Advertisement.find(params[:id])
+	send_data(@ad.image)
   end
   
 

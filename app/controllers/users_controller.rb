@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, 
-                only: [:index, :edit, :update, :destroy, :following, :followers]
+                only: [:edit, :update, :destroy, :following, :followers, :index]
   before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  #before_filter :admin_user,     only: [:index, :destroy]
 
   def show
 	@user = User.find(params[:id])
-	@users = User.paginate(page: params[:page])
+	
 	if !signed_in?
-		flash.now[:error] = 'Not signed in'
+		flash[:error] = 'Not signed in'
 		redirect_to root_path
 	elsif current_user != @user
-		flash.now[:error] = 'Wrong user'
+		flash[:error] = 'Wrong user'
 		redirect_to(user_path(current_user))
 	end
   end
@@ -25,10 +25,10 @@ class UsersController < ApplicationController
   end
   
   def index
-	if signed_in?
-		@users = User.paginate(page: params[:page])
+	if current_user.admin?
+		@users = User.all
 	else
-		flash.now[:error] = 'Not signed in'
+		flash[:error] = 'Not an administrator'
 		redirect_to root_path
 	end
   end
